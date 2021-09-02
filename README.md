@@ -2,7 +2,7 @@
 
 第一个版本，有时间继续填坑。
 
-## [插件下载]()
+### [插件下载](https://github.com/xixka/Emby.Music-China-Provider/blob/main/MusicChinaProvider/bin/Debug/netstandard2.0/MusicChinaProvider.dll)
 
 ## 任务清单
 
