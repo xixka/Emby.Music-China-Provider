@@ -49,12 +49,46 @@ namespace MusicProvider
             _fileSystem = fileSystem;
         }
 
-        public Task<IEnumerable<RemoteSearchResult>> GetSearchResults(ArtistInfo searchInfo, CancellationToken cancellationToken)
+        public async Task<IEnumerable<RemoteSearchResult>> GetSearchResults(ArtistInfo searchInfo, CancellationToken cancellationToken)
         {
-            // 后面实现
             _logger.Debug("触发GetSearchResults");
-            return Task.FromResult<IEnumerable<RemoteSearchResult>>(new List<RemoteSearchResult>());
+            var remoteSearchResults = new List<RemoteSearchResult>();
+            var MusicName = GetMusicArtistName(searchInfo);
+            _logger.Info($"搜索艺术家 --> {MusicName}");
+            SearchJson result;
+            var options = new HttpRequestOptions
+            {
+                Url = $"http://music.163.com/api/search/get/web?csrf_token=hlpretag=&s={MusicName}&type=100&offset=0&limit=20",
+                UserAgent = UA,
+                EnableHttpCompression = false,
+                RequestHeaders = { {"X-Real-IP",IpConsts.RealIP}  }
+            };
+            using (var json = await _httpClient.Get(options).ConfigureAwait(false))
+            {
+                using (var reader = new StreamReader(json))
+                {
+                    var jsonText = await reader.ReadToEndAsync().ConfigureAwait(false);
+                    _logger.Debug($"读取到网易云返回的结果 --> {jsonText}");
+                     result =  _json.DeserializeFromString<SearchJson>(jsonText);
+                }
+            }
+
+            if (result != null && result.result.artistCount != 0)
+            {
+                foreach (var resultArtist in result.result.artists)
+                {
+                    var n1 = new RemoteSearchResult();
+                    n1.Name = resultArtist.name;
+                    n1.ImageUrl = resultArtist.img1v1Url+"?param=300y300";
+                    remoteSearchResults.Add(n1);
+                }
+            }
+            return await Task.FromResult<IEnumerable<RemoteSearchResult>>(remoteSearchResults );
         }
+
+
+
+
 
 
         private static string GetMusicArtistName(ArtistInfo info)
@@ -71,11 +105,11 @@ namespace MusicProvider
             var res = new MetadataResult<MusicArtist>();
             res.Item = new MusicArtist();
             res.HasMetadata = true;
-            await FetchLastfmData(res.Item, MusicName).ConfigureAwait(false);
+            await FetchData(res.Item, MusicName).ConfigureAwait(false);
             return res;
         }
 
-        protected async Task FetchLastfmData(MusicArtist item, string MusicName)
+        protected async Task FetchData(MusicArtist item, string MusicName)
         {
             _logger.Debug($"获取到歌手姓名 --> {MusicName}");
             SearchJson result;
