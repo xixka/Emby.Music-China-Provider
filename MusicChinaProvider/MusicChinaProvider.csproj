@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFrameworks>netstandard2.0;</TargetFrameworks>
+        <AssemblyVersion>1.0.0.0</AssemblyVersion>
+        <FileVersion>1.0.0.0</FileVersion>
+        <RootNamespace>MusicProvider</RootNamespace>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="MediaBrowser.Common" Version="4.6.0.50" />
+        <PackageReference Include="MediaBrowser.Server.Core" Version="4.6.0.50" />
+        <PackageReference Include="System.Memory" Version="4.5.3" />
+    </ItemGroup>
+
+</Project>
