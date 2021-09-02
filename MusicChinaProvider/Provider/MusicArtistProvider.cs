@@ -67,6 +67,7 @@ namespace MusicProvider
             _logger.Debug("触发GetMetadata");
             // 1.获取名字
             var MusicName = GetMusicArtistName(info);
+            _logger.Info($"搜刮艺术家 --> {MusicName}");
             var res = new MetadataResult<MusicArtist>();
             res.Item = new MusicArtist();
             res.HasMetadata = true;

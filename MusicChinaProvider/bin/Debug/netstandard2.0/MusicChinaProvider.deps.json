@@ -1,0 +1,152 @@
+{
+  "runtimeTarget": {
+    "name": ".NETStandard,Version=v2.0/",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETStandard,Version=v2.0": {},
+    ".NETStandard,Version=v2.0/": {
+      "MusicChinaProvider/1.0.0": {
+        "dependencies": {
+          "MediaBrowser.Common": "4.6.0.50",
+          "MediaBrowser.Server.Core": "4.6.0.50",
+          "NETStandard.Library": "2.0.3",
+          "System.Memory": "4.5.3"
+        },
+        "runtime": {
+          "MusicChinaProvider.dll": {}
+        }
+      },
+      "MediaBrowser.Common/4.6.0.50": {
+        "runtime": {
+          "lib/netstandard2.0/MediaBrowser.Common.dll": {
+            "assemblyVersion": "4.6.0.50",
+            "fileVersion": "4.6.0.50"
+          },
+          "lib/netstandard2.0/MediaBrowser.Model.dll": {
+            "assemblyVersion": "4.6.0.50",
+            "fileVersion": "4.6.0.50"
+          }
+        }
+      },
+      "MediaBrowser.Server.Core/4.6.0.50": {
+        "dependencies": {
+          "MediaBrowser.Common": "4.6.0.50"
+        },
+        "runtime": {
+          "lib/netstandard2.0/MediaBrowser.Controller.dll": {
+            "assemblyVersion": "4.6.0.50",
+            "fileVersion": "4.6.0.50"
+          }
+        }
+      },
+      "Microsoft.NETCore.Platforms/1.1.0": {},
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "1.1.0"
+        }
+      },
+      "System.Buffers/4.4.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Buffers.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.25519.3"
+          }
+        }
+      },
+      "System.Memory/4.5.3": {
+        "dependencies": {
+          "System.Buffers": "4.4.0",
+          "System.Numerics.Vectors": "4.4.0",
+          "System.Runtime.CompilerServices.Unsafe": "4.5.2"
+        },
+        "runtime": {
+          "lib/netstandard2.0/System.Memory.dll": {
+            "assemblyVersion": "4.0.1.1",
+            "fileVersion": "4.6.27617.2"
+          }
+        }
+      },
+      "System.Numerics.Vectors/4.4.0": {
+        "runtime": {
+          "lib/netstandard2.0/System.Numerics.Vectors.dll": {
+            "assemblyVersion": "4.1.3.0",
+            "fileVersion": "4.6.25519.3"
+          }
+        }
+      },
+      "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+        "runtime": {
+          "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
+            "assemblyVersion": "4.0.4.1",
+            "fileVersion": "4.6.26919.2"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "MusicChinaProvider/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "MediaBrowser.Common/4.6.0.50": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-loLR660GW54f3QSS+mdlH0WT7pDu1tV4hoongx8h9PzWDjpphRIjPvbjltbGOKo4EGC8tvye2tuNGx70n1bMdQ==",
+      "path": "mediabrowser.common/4.6.0.50",
+      "hashPath": "mediabrowser.common.4.6.0.50.nupkg.sha512"
+    },
+    "MediaBrowser.Server.Core/4.6.0.50": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-bZ+386le18Mk5meWvQLTV3cDuNlomGB2ZvrSzNcE7pVVJtIDe3QsSQOb3Dpc86tKrmT3gsSkM7cjXYEBQ/mulw==",
+      "path": "mediabrowser.server.core/4.6.0.50",
+      "hashPath": "mediabrowser.server.core.4.6.0.50.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/1.1.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-kz0PEW2lhqygehI/d6XsPCQzD7ff7gUJaVGPVETX611eadGsA3A877GdSlU0LRVMCTH/+P3o2iDTak+S08V2+A==",
+      "path": "microsoft.netcore.platforms/1.1.0",
+      "hashPath": "microsoft.netcore.platforms.1.1.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "System.Buffers/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-AwarXzzoDwX6BgrhjoJsk6tUezZEozOT5Y9QKF94Gl4JK91I4PIIBkBco9068Y9/Dra8Dkbie99kXB8+1BaYKw==",
+      "path": "system.buffers/4.4.0",
+      "hashPath": "system.buffers.4.4.0.nupkg.sha512"
+    },
+    "System.Memory/4.5.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
+      "path": "system.memory/4.5.3",
+      "hashPath": "system.memory.4.5.3.nupkg.sha512"
+    },
+    "System.Numerics.Vectors/4.4.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UiLzLW+Lw6HLed1Hcg+8jSRttrbuXv7DANVj0DkL9g6EnnzbL75EB7EWsw5uRbhxd/4YdG8li5XizGWepmG3PQ==",
+      "path": "system.numerics.vectors/4.4.0",
+      "hashPath": "system.numerics.vectors.4.4.0.nupkg.sha512"
+    },
+    "System.Runtime.CompilerServices.Unsafe/4.5.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wprSFgext8cwqymChhrBLu62LMg/1u92bU+VOwyfBimSPVFXtsNqEWC92Pf9ofzJFlk4IHmJA75EDJn1b2goAQ==",
+      "path": "system.runtime.compilerservices.unsafe/4.5.2",
+      "hashPath": "system.runtime.compilerservices.unsafe.4.5.2.nupkg.sha512"
+    }
+  }
+}
