@@ -6,6 +6,7 @@ using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using Emby.MeiamSub.Thunder;
+using Emby.MeiamSub.Thunder.Consts;
 using MediaBrowser.Common.Net;
 using MediaBrowser.Controller.Configuration;
 using MediaBrowser.Controller.Entities.Audio;
@@ -51,6 +52,7 @@ namespace MusicProvider
         public Task<IEnumerable<RemoteSearchResult>> GetSearchResults(ArtistInfo searchInfo, CancellationToken cancellationToken)
         {
             // 后面实现
+            _logger.Debug("触发GetSearchResults");
             return Task.FromResult<IEnumerable<RemoteSearchResult>>(new List<RemoteSearchResult>());
         }
 
@@ -62,6 +64,7 @@ namespace MusicProvider
         
         public async Task<MetadataResult<MusicArtist>> GetMetadata(ArtistInfo info, CancellationToken cancellationToken)
         {
+            _logger.Debug("触发GetMetadata");
             // 1.获取名字
             var MusicName = GetMusicArtistName(info);
             var res = new MetadataResult<MusicArtist>();
@@ -75,21 +78,20 @@ namespace MusicProvider
         {
             _logger.Debug($"获取到歌手姓名 --> {MusicName}");
             SearchJson result;
-            
-            using (var json = await _httpClient.Get(new HttpRequestOptions
+            var options = new HttpRequestOptions
             {
                 Url = $"http://music.163.com/api/search/get/web?csrf_token=hlpretag=&s={MusicName}&type=100&offset=0&limit=20",
                 UserAgent = UA,
-                EnableHttpCompression = false
-
-            }).ConfigureAwait(false))
+                EnableHttpCompression = false,
+                RequestHeaders = { {"X-Real-IP",IpConsts.RealIP}  }
+            };
+            using (var json = await _httpClient.Get(options).ConfigureAwait(false))
             {
                 using (var reader = new StreamReader(json))
                 {
                     var jsonText = await reader.ReadToEndAsync().ConfigureAwait(false);
                     _logger.Debug($"读取到网易云返回的结果 --> {jsonText}");
                     result = _json.DeserializeFromString<SearchJson>(jsonText);
-
                 }
             }
             
@@ -118,7 +120,8 @@ namespace MusicProvider
                 {
                     Url = $"https://music.163.com/api/artist/head/info/get?id={data.id}",
                     UserAgent = UA,
-                    EnableHttpCompression = false
+                    EnableHttpCompression = false,
+                    RequestHeaders = { {"X-Real-IP",IpConsts.RealIP}  }
                 }).ConfigureAwait(false))
                 {
                     using (var reader = new StreamReader(json))
@@ -145,6 +148,7 @@ namespace MusicProvider
 
         public Task<HttpResponseInfo> GetImageResponse(string url, CancellationToken cancellationToken)
         {
+            _logger.Debug("触发GetImageResponse");
             return _httpClient.GetResponse(new HttpRequestOptions
             {
                 CancellationToken = cancellationToken,
