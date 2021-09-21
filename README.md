@@ -1,6 +1,6 @@
 # emby网易云搜刮插件
 
-[comment]: <> (### [插件下载]&#40;https://github.com/xixka/Emby.Music-China-Provider/blob/main/MusicChinaProvider/bin/Debug/netstandard2.0/MusicChinaProvider.dll&#41;)
+### [插件下载]&#40;https://github.com/xixka/Emby.Music-China-Provider/blob/main/MusicChinaProvider/bin/Debug/netstandard2.0/MusicChinaProvider.dll&#41;)
 
 ## 任务清单
 
