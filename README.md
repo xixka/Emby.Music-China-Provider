@@ -1,5 +1,10 @@
 # emby网易云搜刮插件
 
+
+## 第一次写.net,打算重写该项目
+
+
+
 ### [插件下载](https://github.com/xixka/Emby.Music-China-Provider/blob/main/MusicChinaProvider/bin/Debug/netstandard2.0/MusicChinaProvider.dll)
 
 ## 任务清单
