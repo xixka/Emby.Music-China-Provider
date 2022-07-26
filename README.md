@@ -1,7 +1,7 @@
 # emby网易云搜刮插件
 
 
-
+## 请先用 MusicTag 搜刮歌曲，再安装该插件使用emby搜刮
 
 
 ### [插件下载](https://github.com/xixka/Emby.Music-China-Provider/blob/main/MusicChinaProvider/bin/Debug/netstandard2.0/MusicChinaProvider.dll)
