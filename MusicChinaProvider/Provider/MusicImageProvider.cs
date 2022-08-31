@@ -18,6 +18,10 @@ using MediaBrowser.Model.Serialization;
 
 namespace MusicProvider
 {
+    
+    /**
+     * 图片搜刮器
+     */
     public class MusicImageProvider: IRemoteImageProvider, IHasOrder
     {
         public string Name => "Music-China";

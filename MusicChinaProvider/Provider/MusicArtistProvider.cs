@@ -27,9 +27,6 @@ namespace MusicProvider
     {
         public int Order => 0;
         
-      
-
-
         private const string UA = "PostmanRuntime/7.28.4";
         
         public string Name => "Music-China";
@@ -61,7 +58,7 @@ namespace MusicProvider
                 Url = $"http://music.163.com/api/search/get/web?csrf_token=hlpretag=&s={MusicName}&type=100&offset=0&limit=20",
                 UserAgent = UA,
                 EnableHttpCompression = false,
-                RequestHeaders = { {"X-Real-IP",IpConsts.RealIP}  }
+                RequestHeaders = { {"X-Real-IP",Consts.RealIP}  }
             };
             using (var json = await _httpClient.Get(options).ConfigureAwait(false))
             {
@@ -118,7 +115,7 @@ namespace MusicProvider
                 Url = $"http://music.163.com/api/search/get/web?csrf_token=hlpretag=&s={MusicName}&type=100&offset=0&limit=20",
                 UserAgent = UA,
                 EnableHttpCompression = false,
-                RequestHeaders = { {"X-Real-IP",IpConsts.RealIP}  }
+                RequestHeaders = { {"X-Real-IP",Consts.RealIP}  }
             };
             using (var json = await _httpClient.Get(options).ConfigureAwait(false))
             {
@@ -156,7 +153,7 @@ namespace MusicProvider
                     Url = $"https://music.163.com/api/artist/head/info/get?id={data.id}",
                     UserAgent = UA,
                     EnableHttpCompression = false,
-                    RequestHeaders = { {"X-Real-IP",IpConsts.RealIP}  }
+                    RequestHeaders = { {"X-Real-IP",Consts.RealIP}  }
                 }).ConfigureAwait(false))
                 {
                     using (var reader = new StreamReader(json))
