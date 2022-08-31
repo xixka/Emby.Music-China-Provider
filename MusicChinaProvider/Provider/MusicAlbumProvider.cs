@@ -16,16 +16,25 @@ namespace MusicProvider
         
         public string Name => "Music-China";
         
+        /**
+         * 识别调用这里
+         */
         public Task<IEnumerable<RemoteSearchResult>> GetSearchResults(AlbumInfo searchInfo, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
 
+        /**
+         * 搜刮调用这里
+         */
         public Task<MetadataResult<MusicAlbum>> GetMetadata(AlbumInfo info, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
         }
         
+        /**
+         * 暂时不提供专辑图片
+         */
         public Task<HttpResponseInfo> GetImageResponse(string url, CancellationToken cancellationToken)
         {
             throw new System.NotImplementedException();
