@@ -92,6 +92,7 @@ namespace MusicProvider
         private static string GetMusicArtistName(ArtistInfo info)
         {
             return info.Name;
+            
         }
 
         public async Task<MetadataResult<MusicArtist>> GetMetadata(ArtistInfo info, CancellationToken cancellationToken)

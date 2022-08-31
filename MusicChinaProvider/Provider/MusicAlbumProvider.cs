@@ -43,18 +43,18 @@ namespace MusicProvider
          */
         public Task<MetadataResult<MusicAlbum>> GetMetadata(AlbumInfo info, CancellationToken cancellationToken)
         {
-            
+            // info.AlbumArtists
             throw new System.NotImplementedException();
         }
 
         /**
-         * 根据专辑名字和歌手名字获取专辑ID
+         * 根据专辑名字和歌手名字获取信息
          */
-        public async Task ByNameSearchAlbum(String Albumname,String MusicName)
+        public async Task<SearchAlbumJson> ByNameSearchAlbum(String Albumname,String MusicName)
         {
             String SearchKey = Albumname + " " + MusicName;
             _logger.Debug($"搜索专辑 --> {SearchKey}");
-            SearchJson result;
+            SearchAlbumJson result ;
             var options = new HttpRequestOptions
             {
                 Url =
@@ -69,14 +69,22 @@ namespace MusicProvider
                 {
                     var jsonText = await reader.ReadToEndAsync().ConfigureAwait(false);
                     _logger.Debug($"读取到网易云返回的结果 --> {jsonText}");
-                    result = _json.DeserializeFromString<SearchJson>(jsonText);
+                    result = _json.DeserializeFromString<SearchAlbumJson>(jsonText);
                 }
             }
-            if (result != null && result.result.artistCount != 0)
+            if (result != null && result.result.albumCount != 0)
             {
                 // 有结果返回进行处理
-               
+                return result;
             }
+            else
+            {
+                return null;
+            }
+        }
+
+        public async Task setup()
+        {
             
         }
 
